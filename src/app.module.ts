@@ -5,6 +5,7 @@ import { BullBoardModule } from '@bull-board/nestjs';
 import { ExpressAdapter } from '@bull-board/express';
 import { BullModule } from '@nestjs/bullmq';
 import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
+import { HelloProcessor } from './queues/hello.processor';
 
 @Module({
   imports: [
@@ -27,6 +28,6 @@ import { BullMQAdapter } from '@bull-board/api/bullMQAdapter';
     }),
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, HelloProcessor],
 })
 export class AppModule {}

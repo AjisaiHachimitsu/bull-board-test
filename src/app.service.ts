@@ -6,6 +6,6 @@ import type { Queue } from 'bullmq';
 export class AppService {
   constructor(@InjectQueue('hello-queue') private helloQueue: Queue) {}
   async getHello() {
-    return await this.helloQueue.add('hello', undefined);
+    await this.helloQueue.add('hello', undefined);
   }
 }
